@@ -1,0 +1,199 @@
+{
+    "os": "Linux-5.15.0-101-generic-x86_64-with-glibc2.31",
+    "python": "3.9.16",
+    "heartbeatAt": "2024-04-11T07:13:49.562854",
+    "startedAt": "2024-04-11T07:13:47.765743",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "3a_ML_modelling_ablation.ipynb",
+    "codePathLocal": "3a_ML_modelling_ablation.ipynb",
+    "root": "/home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED",
+    "git": {
+        "remote": "https://github.com/Davidlequnchen/MultiSensor-Monitoring-LW-DED.git",
+        "commit": "6d600c3157a5ac982ede588f9d81464814dde984"
+    },
+    "email": "chen1189@e.ntu.edu.sg",
+    "host": "chenlequn-HP-Z840-Workstation",
+    "username": "chenlequn",
+    "executable": "/home/chenlequn/anaconda3/envs/torch/bin/python3",
+    "cpu_count": 24,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 3133.76571875,
+        "min": 800.0,
+        "max": 5087.5
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 6000.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 6000.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 6000.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 6000.0
+        },
+        {
+            "current": 1080.503,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 5700.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        },
+        {
+            "current": 3200.0,
+            "min": 800.0,
+            "max": 4400.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 91.10977554321289,
+            "used": 24.387836456298828
+        }
+    },
+    "memory": {
+        "total": 62.60200881958008
+    }
+}

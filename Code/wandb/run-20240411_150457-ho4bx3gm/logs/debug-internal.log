@@ -1,0 +1,207 @@
+2024-04-11 15:04:58,012 INFO    StreamThr :152282 [internal.py:wandb_internal():86] W&B internal server running at pid: 152282, started at: 2024-04-11 15:04:58.011399
+2024-04-11 15:04:58,016 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: status
+2024-04-11 15:04:58,017 INFO    WriterThread:152282 [datastore.py:open_for_write():85] open: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/run-ho4bx3gm.wandb
+2024-04-11 15:04:58,017 DEBUG   SenderThread:152282 [sender.py:send():380] send: header
+2024-04-11 15:04:58,018 DEBUG   SenderThread:152282 [sender.py:send():380] send: run
+2024-04-11 15:04:58,775 INFO    SenderThread:152282 [dir_watcher.py:__init__():211] watching files in: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files
+2024-04-11 15:04:58,775 INFO    SenderThread:152282 [sender.py:_start_run_threads():1122] run started: ho4bx3gm with start time 1712819097.218636
+2024-04-11 15:04:58,783 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: check_version
+2024-04-11 15:04:58,783 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: check_version
+2024-04-11 15:04:58,868 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: run_start
+2024-04-11 15:04:58,894 ERROR   HandlerThread:152282 [gpu.py:is_available():381] Error initializing NVML: RM has detected an NVML/RM version mismatch.
+2024-04-11 15:04:58,895 DEBUG   HandlerThread:152282 [system_info.py:__init__():32] System info init
+2024-04-11 15:04:58,895 DEBUG   HandlerThread:152282 [system_info.py:__init__():47] System info init done
+2024-04-11 15:04:58,895 INFO    HandlerThread:152282 [system_monitor.py:start():194] Starting system monitor
+2024-04-11 15:04:58,895 INFO    SystemMonitor:152282 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-11 15:04:58,895 INFO    HandlerThread:152282 [system_monitor.py:probe():214] Collecting system info
+2024-04-11 15:04:58,895 INFO    SystemMonitor:152282 [interfaces.py:start():190] Started cpu monitoring
+2024-04-11 15:04:58,896 INFO    SystemMonitor:152282 [interfaces.py:start():190] Started disk monitoring
+2024-04-11 15:04:58,898 INFO    SystemMonitor:152282 [interfaces.py:start():190] Started memory monitoring
+2024-04-11 15:04:58,899 INFO    SystemMonitor:152282 [interfaces.py:start():190] Started network monitoring
+2024-04-11 15:04:58,937 DEBUG   HandlerThread:152282 [system_info.py:probe():196] Probing system
+2024-04-11 15:04:58,938 DEBUG   HandlerThread:152282 [system_info.py:_probe_git():181] Probing git
+2024-04-11 15:04:58,955 DEBUG   HandlerThread:152282 [system_info.py:_probe_git():189] Probing git done
+2024-04-11 15:04:58,955 DEBUG   HandlerThread:152282 [system_info.py:probe():244] Probing system done
+2024-04-11 15:04:58,955 DEBUG   HandlerThread:152282 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-101-generic-x86_64-with-glibc2.31', 'python': '3.9.16', 'heartbeatAt': '2024-04-11T07:04:58.937151', 'startedAt': '2024-04-11T07:04:57.215369', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '3a_ML_modelling_ablation.ipynb', 'codePathLocal': '3a_ML_modelling_ablation.ipynb', 'root': '/home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED', 'git': {'remote': 'https://github.com/Davidlequnchen/MultiSensor-Monitoring-LW-DED.git', 'commit': '6d600c3157a5ac982ede588f9d81464814dde984'}, 'email': 'chen1189@e.ntu.edu.sg', 'host': 'chenlequn-HP-Z840-Workstation', 'username': 'chenlequn', 'executable': '/home/chenlequn/anaconda3/envs/torch/bin/python3', 'cpu_count': 24, 'cpu_count_logical': 32, 'cpu_freq': {'current': 3134.375, 'min': 800.0, 'max': 5087.5}, 'cpu_freq_per_core': [{'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 1100.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 6000.0}, {'current': 3200.0, 'min': 800.0, 'max': 6000.0}, {'current': 3200.0, 'min': 800.0, 'max': 6000.0}, {'current': 3200.0, 'min': 800.0, 'max': 6000.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 5700.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}, {'current': 3200.0, 'min': 800.0, 'max': 4400.0}], 'disk': {'/': {'total': 91.10977554321289, 'used': 24.38665771484375}}, 'memory': {'total': 62.60200881958008}}
+2024-04-11 15:04:58,955 INFO    HandlerThread:152282 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-11 15:04:58,955 INFO    HandlerThread:152282 [system_monitor.py:probe():227] Publishing system info
+2024-04-11 15:04:58,955 DEBUG   HandlerThread:152282 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2024-04-11 15:04:58,956 DEBUG   HandlerThread:152282 [system_info.py:_save_pip():68] Saving pip packages done
+2024-04-11 15:04:58,956 DEBUG   HandlerThread:152282 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2024-04-11 15:04:59,776 INFO    Thread-277:152282 [dir_watcher.py:_on_file_created():271] file/dir created: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/requirements.txt
+2024-04-11 15:04:59,776 INFO    Thread-277:152282 [dir_watcher.py:_on_file_created():271] file/dir created: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/conda-environment.yaml
+2024-04-11 15:05:01,726 DEBUG   HandlerThread:152282 [system_info.py:_save_conda():87] Saving conda packages done
+2024-04-11 15:05:01,726 INFO    HandlerThread:152282 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-11 15:05:01,727 DEBUG   SenderThread:152282 [sender.py:send():380] send: files
+2024-04-11 15:05:01,727 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2024-04-11 15:05:01,732 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-11 15:05:01,732 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: stop_status
+2024-04-11 15:05:01,733 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-11 15:05:01,776 INFO    Thread-277:152282 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/conda-environment.yaml
+2024-04-11 15:05:01,776 INFO    Thread-277:152282 [dir_watcher.py:_on_file_created():271] file/dir created: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/wandb-metadata.json
+2024-04-11 15:05:02,048 DEBUG   SenderThread:152282 [sender.py:send():380] send: telemetry
+2024-04-11 15:05:02,048 DEBUG   SenderThread:152282 [sender.py:send():380] send: config
+2024-04-11 15:05:02,776 INFO    Thread-277:152282 [dir_watcher.py:_on_file_created():271] file/dir created: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/output.log
+2024-04-11 15:05:03,058 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: status_report
+2024-04-11 15:05:03,058 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-11 15:05:03,059 DEBUG   SenderThread:152282 [sender.py:send():380] send: history
+2024-04-11 15:05:03,059 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: summary_record
+2024-04-11 15:05:03,060 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-11 15:05:03,060 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,060 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-11 15:05:03,061 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-11 15:05:03,061 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-11 15:05:03,062 DEBUG   SenderThread:152282 [sender.py:send():380] send: history
+2024-04-11 15:05:03,062 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: summary_record
+2024-04-11 15:05:03,062 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,062 DEBUG   SenderThread:152282 [sender.py:send():380] send: history
+2024-04-11 15:05:03,062 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: summary_record
+2024-04-11 15:05:03,065 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,065 DEBUG   SenderThread:152282 [sender.py:send():380] send: history
+2024-04-11 15:05:03,065 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: summary_record
+2024-04-11 15:05:03,065 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,065 DEBUG   SenderThread:152282 [sender.py:send():380] send: history
+2024-04-11 15:05:03,065 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: summary_record
+2024-04-11 15:05:03,065 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,066 DEBUG   SenderThread:152282 [sender.py:send():380] send: telemetry
+2024-04-11 15:05:03,066 DEBUG   SenderThread:152282 [sender.py:send():380] send: exit
+2024-04-11 15:05:03,066 INFO    SenderThread:152282 [sender.py:send_exit():585] handling exit code: 0
+2024-04-11 15:05:03,066 INFO    SenderThread:152282 [sender.py:send_exit():587] handling runtime: 4
+2024-04-11 15:05:03,066 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,066 INFO    SenderThread:152282 [sender.py:send_exit():593] send defer
+2024-04-11 15:05:03,066 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,066 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 0
+2024-04-11 15:05:03,066 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,066 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-04-11 15:05:03,066 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 1
+2024-04-11 15:05:03,066 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,066 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 1
+2024-04-11 15:05:03,067 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,067 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-04-11 15:05:03,067 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 2
+2024-04-11 15:05:03,067 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,067 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 2
+2024-04-11 15:05:03,067 INFO    HandlerThread:152282 [system_monitor.py:finish():203] Stopping system monitor
+2024-04-11 15:05:03,067 INFO    HandlerThread:152282 [interfaces.py:finish():202] Joined cpu monitor
+2024-04-11 15:05:03,067 DEBUG   SystemMonitor:152282 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-04-11 15:05:03,067 INFO    HandlerThread:152282 [interfaces.py:finish():202] Joined disk monitor
+2024-04-11 15:05:03,067 DEBUG   SystemMonitor:152282 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-04-11 15:05:03,067 INFO    HandlerThread:152282 [interfaces.py:finish():202] Joined memory monitor
+2024-04-11 15:05:03,067 DEBUG   SystemMonitor:152282 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-04-11 15:05:03,068 INFO    HandlerThread:152282 [interfaces.py:finish():202] Joined network monitor
+2024-04-11 15:05:03,068 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,068 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-04-11 15:05:03,068 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 3
+2024-04-11 15:05:03,068 DEBUG   SenderThread:152282 [sender.py:send():380] send: stats
+2024-04-11 15:05:03,068 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,068 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 3
+2024-04-11 15:05:03,068 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,068 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-04-11 15:05:03,068 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 4
+2024-04-11 15:05:03,068 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,069 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 4
+2024-04-11 15:05:03,069 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,069 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-04-11 15:05:03,069 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 5
+2024-04-11 15:05:03,069 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,069 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 5
+2024-04-11 15:05:03,069 DEBUG   SenderThread:152282 [sender.py:send():380] send: summary
+2024-04-11 15:05:03,069 INFO    SenderThread:152282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2024-04-11 15:05:03,069 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,069 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-04-11 15:05:03,069 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 6
+2024-04-11 15:05:03,069 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,069 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 6
+2024-04-11 15:05:03,069 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,070 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-04-11 15:05:03,071 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: status_report
+2024-04-11 15:05:03,384 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 7
+2024-04-11 15:05:03,384 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:03,385 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 7
+2024-04-11 15:05:03,385 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:03,386 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-04-11 15:05:03,687 INFO    wandb-upload_0:152282 [upload_job.py:push():131] Uploaded file /tmp/tmpmgt2yr7twandb/5bq8v45c-wandb-metadata.json
+2024-04-11 15:05:03,777 INFO    Thread-277:152282 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/config.yaml
+2024-04-11 15:05:03,777 INFO    Thread-277:152282 [dir_watcher.py:_on_file_created():271] file/dir created: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/wandb-summary.json
+2024-04-11 15:05:04,062 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-11 15:05:04,072 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 8
+2024-04-11 15:05:04,072 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: poll_exit
+2024-04-11 15:05:04,072 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:04,073 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 8
+2024-04-11 15:05:04,074 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:04,074 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-04-11 15:05:04,074 INFO    SenderThread:152282 [job_builder.py:build():281] Attempting to build job artifact
+2024-04-11 15:05:04,075 INFO    SenderThread:152282 [job_builder.py:_get_source_type():393] is repo sourced job
+2024-04-11 15:05:04,075 INFO    SenderThread:152282 [job_builder.py:_get_program_relpath():411] run is notebook based run
+2024-04-11 15:05:04,076 INFO    SenderThread:152282 [job_builder.py:build():369] adding wandb-job metadata file
+2024-04-11 15:05:04,085 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 9
+2024-04-11 15:05:04,085 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:04,085 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 9
+2024-04-11 15:05:04,086 DEBUG   SenderThread:152282 [sender.py:send():380] send: artifact
+2024-04-11 15:05:04,777 INFO    Thread-277:152282 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/output.log
+2024-04-11 15:05:05,063 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-11 15:05:05,559 INFO    SenderThread:152282 [sender.py:send_artifact():1456] sent artifact job-https___github.com_Davidlequnchen_MultiSensor-Monitoring-LW-DED.git_3a_ML_modelling_ablation.ipynb - {'id': 'QXJ0aWZhY3Q6NzkyNjA1MDk0', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE2MTUxNDY2MA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzkyNjA1NjAy', 'versionIndex': 11}}}
+2024-04-11 15:05:05,559 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:05,559 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-04-11 15:05:05,559 INFO    SenderThread:152282 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-04-11 15:05:05,779 INFO    SenderThread:152282 [dir_watcher.py:finish():388] scan: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files
+2024-04-11 15:05:05,779 INFO    SenderThread:152282 [dir_watcher.py:finish():402] scan save: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/config.yaml config.yaml
+2024-04-11 15:05:05,779 INFO    SenderThread:152282 [dir_watcher.py:finish():402] scan save: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/wandb-summary.json wandb-summary.json
+2024-04-11 15:05:05,780 INFO    SenderThread:152282 [dir_watcher.py:finish():402] scan save: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/requirements.txt requirements.txt
+2024-04-11 15:05:05,780 INFO    SenderThread:152282 [dir_watcher.py:finish():402] scan save: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/output.log output.log
+2024-04-11 15:05:05,780 INFO    SenderThread:152282 [dir_watcher.py:finish():402] scan save: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/conda-environment.yaml conda-environment.yaml
+2024-04-11 15:05:05,780 INFO    SenderThread:152282 [dir_watcher.py:finish():402] scan save: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/wandb-metadata.json wandb-metadata.json
+2024-04-11 15:05:05,780 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 10
+2024-04-11 15:05:05,780 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: poll_exit
+2024-04-11 15:05:05,794 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:05,795 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 10
+2024-04-11 15:05:05,795 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:05,795 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-04-11 15:05:05,796 INFO    SenderThread:152282 [file_pusher.py:finish():175] shutting down file pusher
+2024-04-11 15:05:06,080 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-11 15:05:06,081 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: poll_exit
+2024-04-11 15:05:06,375 INFO    wandb-upload_1:152282 [upload_job.py:push():131] Uploaded file /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/config.yaml
+2024-04-11 15:05:06,410 INFO    wandb-upload_2:152282 [upload_job.py:push():131] Uploaded file /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/wandb-summary.json
+2024-04-11 15:05:06,412 INFO    wandb-upload_0:152282 [upload_job.py:push():131] Uploaded file /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/requirements.txt
+2024-04-11 15:05:06,421 INFO    wandb-upload_4:152282 [upload_job.py:push():131] Uploaded file /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/conda-environment.yaml
+2024-04-11 15:05:06,431 INFO    wandb-upload_3:152282 [upload_job.py:push():131] Uploaded file /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/files/output.log
+2024-04-11 15:05:06,632 INFO    Thread-276:152282 [sender.py:transition_state():613] send defer: 11
+2024-04-11 15:05:06,632 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:06,632 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 11
+2024-04-11 15:05:06,633 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:06,634 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-04-11 15:05:06,634 INFO    SenderThread:152282 [file_pusher.py:join():181] waiting for file pusher
+2024-04-11 15:05:06,634 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 12
+2024-04-11 15:05:06,634 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:06,634 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 12
+2024-04-11 15:05:06,635 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:06,635 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-04-11 15:05:06,635 INFO    SenderThread:152282 [file_stream.py:finish():595] file stream finish called
+2024-04-11 15:05:06,860 INFO    SenderThread:152282 [file_stream.py:finish():599] file stream finish is done
+2024-04-11 15:05:06,860 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 13
+2024-04-11 15:05:06,860 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:06,860 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 13
+2024-04-11 15:05:06,861 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:06,861 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-04-11 15:05:06,861 INFO    SenderThread:152282 [sender.py:transition_state():613] send defer: 14
+2024-04-11 15:05:06,862 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: defer
+2024-04-11 15:05:06,862 INFO    HandlerThread:152282 [handler.py:handle_request_defer():172] handle defer: 14
+2024-04-11 15:05:06,863 DEBUG   SenderThread:152282 [sender.py:send():380] send: final
+2024-04-11 15:05:06,863 DEBUG   SenderThread:152282 [sender.py:send():380] send: footer
+2024-04-11 15:05:06,863 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: defer
+2024-04-11 15:05:06,863 INFO    SenderThread:152282 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-04-11 15:05:06,865 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-11 15:05:06,867 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-11 15:05:06,868 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: poll_exit
+2024-04-11 15:05:06,869 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: server_info
+2024-04-11 15:05:06,869 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: get_summary
+2024-04-11 15:05:06,870 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: server_info
+2024-04-11 15:05:06,870 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: sampled_history
+2024-04-11 15:05:06,875 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: job_info
+2024-04-11 15:05:07,094 DEBUG   SenderThread:152282 [sender.py:send_request():407] send_request: job_info
+2024-04-11 15:05:07,096 DEBUG   HandlerThread:152282 [handler.py:handle_request():146] handle_request: shutdown
+2024-04-11 15:05:07,096 INFO    HandlerThread:152282 [handler.py:finish():866] shutting down handler
+2024-04-11 15:05:07,876 INFO    WriterThread:152282 [datastore.py:close():294] close: /home/chenlequn/GitHub/MultiSensor-Monitoring-LW-DED/Code/wandb/run-20240411_150457-ho4bx3gm/run-ho4bx3gm.wandb
+2024-04-11 15:05:08,095 INFO    SenderThread:152282 [sender.py:finish():1534] shutting down sender
+2024-04-11 15:05:08,095 INFO    SenderThread:152282 [file_pusher.py:finish():175] shutting down file pusher
+2024-04-11 15:05:08,095 INFO    SenderThread:152282 [file_pusher.py:join():181] waiting for file pusher
