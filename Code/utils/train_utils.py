@@ -27,7 +27,8 @@ from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 from sklearn.preprocessing import label_binarize
 
 from datetime import datetime
-from tqdm import tqdm
+# from tqdm import tqdm
+from tqdm.notebook import tqdm
 ## plot
 import matplotlib.pyplot as plt
 import seaborn as sns

@@ -35,6 +35,31 @@ from glob import glob
 import scipy as sp
 import subprocess
 import cv2
+from prettytable import PrettyTable
+import torch
+import torch.nn as nn
+import torch.nn.init as init
+import torchvision
+import torchaudio
+import torchvision.transforms as transforms
+from torch.utils.data import Dataset, DataLoader, random_split, SubsetRandomSampler, WeightedRandomSampler
+import time
+
+## plot
+import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib as mpl
+from matplotlib.pyplot import gca
+mpl.rc('axes', labelsize=14)
+mpl.rc('xtick', labelsize=12)
+mpl.rc('ytick', labelsize=12)
+import seaborn as sns
+from itertools import cycle
+import itertools
+
+term_width = 30
+TOTAL_BAR_LENGTH = 80
+
 
 # Function to display video information
 def display_video_info(video_path):
@@ -56,7 +81,6 @@ def display_video_info(video_path):
     print(f"Total Duration: {total_duration_min} min {total_duration_sec} seconds")
 
     cap.release()
-
 
 
 def format_time(seconds):
@@ -109,6 +133,190 @@ def progress_bar(current, total, msg=None):
         sys.stdout.write('\n')
     sys.stdout.flush()
     
+def model_evaluation(model, dataloader, classes, device, classifier_name = "MFCC-CNN", signal_type = "denoised", seed=0, mode = 'single_model'):
+    n_classes = len(classes)
+    torch.manual_seed(seed)
+    #------------- Perform cross-validation on the model ------------#
+    test_accuracy_mean, test_accuracy_std = cross_validation_model(model, dataloader, device, mode = mode)
+    #------------ AUC-ROC score measurement ---------#
+    auc_mean, auc_std = roc_auc_evaluation(model, dataloader, device, classes, classifier_name, mode = mode)
+    #------------ Summary ---------#
+    print('Test Accuracy (cross-validation) for' , classifier_name, '= {:.5f} ± {:.5f}'.format(test_accuracy_mean, test_accuracy_std))
+    print('micro-averaging AUC for' , classifier_name, '= {:.5f} ± {:.5f}'.format(auc_mean, auc_std))
+    # save_fig("ROC_" + classifier_name + "_" + signal_type)
+    return test_accuracy_mean, test_accuracy_std, auc_mean, auc_std
+
+### Define Loss and Accuracy plot function
+def loss_acc_plot(train_losses, valid_losses, train_accuracy, valid_accuracy, epochs_num, title, interval=20, yloss_limit1=0, yloss_limit2=1.5, yacc_limit1=0.4, yacc_limit2=1):
+    fig, (ax1,ax2) = plt.subplots(nrows = 2, sharex = True, figsize=(7,8));
+    # plt.title(title, fontsize = 20, y=1.05)
+    # Loss plot
+    ax1.plot(train_losses, 'darkorange', label = 'Train Loss', linewidth=2)
+    ax1.plot(valid_losses, 'navy', label = 'Test Loss', linewidth=2)
+    ax1.legend(loc =1, fontsize = 16)
+    ax1.set_xlabel('Epochs', fontsize = 20)
+    ax1.set_xticks(np.arange(0,epochs_num+1,interval))
+    ax1.set_ylabel('Crossentropy Loss', fontsize = 20)
+    ax1.set_ylim(yloss_limit1,yloss_limit2)
+    ax1.set_title('Loss Curve', fontsize = 20, pad=12)
+    ax1.xaxis.set_tick_params(labelsize=18)
+    ax1.yaxis.set_tick_params(labelsize=18)
+    
+    # Accuracy plot
+    ax2.plot(train_accuracy, 'darkorange', label = 'Train Accuracy', linewidth=2)
+    ax2.plot(valid_accuracy, 'navy', label = 'Test Accuracy', linewidth=2)
+    ax2.legend(loc =4, fontsize = 16)
+    ax2.set_xlabel('Epochs', fontsize = 20)
+    ax1.set_xticks(np.arange(0,epochs_num+1,interval))
+    ax2.set_ylabel('Accuracy', fontsize =20)
+    ax2.set_ylim(yacc_limit1,yacc_limit2)
+    ax2.set_title('Accuracy Curve', fontsize =20, pad=12)
+    ax2.xaxis.set_tick_params(labelsize=18)
+    ax2.yaxis.set_tick_params(labelsize=18)
+    ax1.grid(zorder=3, linestyle='--',linewidth=0.8, alpha=0.4, color = "k") #linestyle='--', color='r'
+    ax2.grid(zorder=3, linestyle='--',linewidth=0.8, alpha=0.4, color = "k") #linestyle='--', color='r'
+    # fig.suptitle(title, fontsize = 22, y=1.001)
+    plt.tight_layout()
+
+def get_accuracy(model, data_loader, device, mode = 'single_model'):
+    '''
+    Function for computing the accuracy of the predictions over the entire data_loader
+    '''
+    correct_pred = 0 
+    total = 0
+    with torch.no_grad():
+        model.eval()
+        for inputs, targets in data_loader:
+            if mode == "single_model":
+                inputs, targets = inputs.to(device), targets.to(device)
+                outputs = model(inputs)
+            elif mode == "multi_model":
+                inputs = [x.to(device) for x in inputs]
+                targets = targets.to(device)
+                outputs = model(*inputs)
+        
+            _, predicted = outputs.max(1)
+            total += targets.size(0)
+            correct_pred += predicted.eq(targets).sum().item()
+            accuracy = correct_pred/total
+    return accuracy
+
+
+### Define function to predict X_test, return y_pred & y_true and print the classification report
+def class_report(model, testdataloader, device, classes, mode='single_model'):
+    # initialize variables to store true and predicted labels
+    y_true, y_pred = [], []
+    with torch.no_grad():
+        model.eval()
+        for inputs, targets in testdataloader:
+            if mode == "single_model":
+                inputs, targets = inputs.to(device), targets.to(device)
+                outputs = model(inputs)
+            elif mode == "multi_model":
+                inputs = [x.to(device) for x in inputs]
+                targets = targets.to(device)
+                outputs = model(*inputs)
+
+            _, predicted = outputs.max(1)
+            # _, predicted = torch.max(outputs, dim=1)
+            predicted = predicted.cpu().numpy()     
+            # convert true labels to a list
+            y_true += [classes[index] for index in targets.cpu().numpy()]
+            y_pred += [classes[index] for index in predicted]
+    
+    print(classification_report(y_true, y_pred,digits=4))
+    return y_true, y_pred
+
+
+### Function to plot confusion matrix
+def plot_confusion_matrix(cm, classes,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    plt.figure(figsize=(8, 8))
+    im_ratio = cm.shape[1]/cm.shape[0]
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title, fontsize=18, pad=12)
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=90, fontsize=12)
+    plt.yticks(tick_marks, classes, fontsize=12)
+
+    fmt = '.3f'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 fontsize = 16, 
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.ylabel('Ground Truth', fontsize=20, labelpad =12)
+    plt.xlabel('Predicted', fontsize=20, labelpad =12)
+    plt.xticks(fontsize=16,  rotation=30, ha='right')
+    plt.yticks(fontsize=16)
+    cbar = plt.colorbar(orientation="vertical", pad=0.1, ticks=[0, 0.5, 1], fraction=0.045*im_ratio)
+    cbar.ax.tick_params(labelsize=14)
+    cbar.ax.set_title('Accuracy',fontsize=16, pad = 12)
+    plt.tight_layout()
+
+    
+def plot_confusion_matrix_sns(y_true, y_pred, classes):
+    plt.figure(figsize=(10, 7))
+    tick_marks = np.arange(len(classes))
+    cm = confusion_matrix(y_true, y_pred)
+    # convert to percentage and plot the confusion matrix
+    cm_pct = cm.astype(float) / cm.sum(axis =1)[:,np.newaxis]
+    sns.heatmap(cm_pct, annot=True, fmt='.3%', cmap='Blues', linewidths=2, linecolor='black') #cmap='Blues'
+    plt.xticks(tick_marks, classes, horizontalalignment='center', rotation=70, fontsize=12)
+    plt.yticks(tick_marks, classes, horizontalalignment="center", rotation=0, fontsize=12)
+
+    plt.ylabel('True label', fontsize=18)
+    plt.xlabel('Predicted label', fontsize=18)
+    
+    
+## Define function to get the confusion matrix and print out the plot as well
+def conf_matrix(y_true, y_pred, classes=["Laser-off",'Defect-free','Cracks','Keyhole pores']):
+    cm = confusion_matrix(y_true, y_pred)
+    
+    # convert to percentage and plot the confusion matrix
+    cm_pct = cm.astype(float) / cm.sum(axis =1)[:,np.newaxis]
+    
+    # classes = le.classes_
+    print(cm)
+    plot_confusion_matrix(cm_pct, classes)
+
+
+def show_confusion_matrix(y_true, y_pred, classes=None, classes_categorical=None, normalize=None, figsize=(10, 10), 
+                          dpi=600, fontsize=10, axis_fontsize=14, tick_size=12):
+    cm = confusion_matrix(y_true, y_pred, normalize=normalize, labels=classes)
+    
+    if normalize == 'true':
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+    
+    fig, ax = plt.subplots(figsize=figsize, dpi=dpi)
+    cax = ax.matshow(cm, cmap=plt.cm.Blues)
+    
+    cbar = plt.colorbar(cax, ax=ax, shrink=0.65)
+    
+    if classes:
+        tick_marks = np.arange(len(classes))
+        plt.xticks(tick_marks, classes_categorical, rotation=45, fontsize=tick_size, ha='left')
+        plt.yticks(tick_marks, classes_categorical, fontsize=tick_size)
+    
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], '.2f' if normalize else 'd'),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black",
+                 fontsize=fontsize)
+    
+    ax.set_xlabel('Predicted label', fontsize=axis_fontsize)
+    ax.set_ylabel('True label', fontsize=axis_fontsize)
+
+
+
 def crop_video_and_save_frames_ffmpeg(video_path, image_output_folder, start_time, end_time, sample_index, target_fps=25):
     # Convert start_time and end_time to HH:MM:SS format
     start_timestamp = format_time(start_time)

@@ -32,7 +32,7 @@ class MFCCCNN(nn.Module):
         self.pool3 = nn.MaxPool2d(kernel_size=(2, 1), stride=(2, 1))
         self.dropout2 = nn.Dropout(p=dropout_rate)
         self.flatten = nn.Flatten()
-        self.fc1 = nn.Linear(in_features=28* 128, out_features=128) 
+        self.fc1 = nn.Linear(in_features=72* 128, out_features=128) 
         self.dropout3 = nn.Dropout(p=dropout_rate)
         self.fc2 = nn.Linear(in_features=128, out_features=num_classes)
         self.softmax = nn.Softmax(dim=1)
@@ -50,14 +50,14 @@ class MFCCCNN(nn.Module):
         x = F.relu(self.fc1(x))
         x = self.dropout3(x)
         logits = self.fc2(x)
-        # predictions = self.softmax(logits)
-        return logits
+        predictions = self.softmax(logits)
+        return predictions
 
 
 
 if __name__ == "__main__":
     cnn = MFCCCNN()
     print (cnn)
-    summary(cnn.cuda(), (1, 32, 7)) # mel-spectrogram - (1,32,18) 128*8 for 100 ms; 
+    summary(cnn.cuda(), (1, 32, 18)) # mel-spectrogram - (1,32,18) 128*8 for 100 ms; 
 
 
