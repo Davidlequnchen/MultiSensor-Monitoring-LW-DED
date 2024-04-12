@@ -39,3 +39,6 @@ hyperopt==0.2.7
 imageio==2.4.1
 imageio-ffmpeg
 nussl
+kymatio
+scikit-cuda
+cupy-cuda116
