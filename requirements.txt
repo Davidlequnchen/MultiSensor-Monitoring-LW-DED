@@ -39,6 +39,10 @@ hyperopt==0.2.7
 imageio==2.4.1
 imageio-ffmpeg
 nussl
-kymatio
+lightning
+tensorflow=2.14.0
+# kymatio
 scikit-cuda
 cupy-cuda116
+git+https://github.com/cyrusvahidi/ismir23-kymatio-tools.git
+git+https://github.com/kymatio/kymatio.git 
