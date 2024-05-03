@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+print ("start")
 # Define a function to normalize energy density values to a suitable range for marker sizes
 def normalize_to_range(values, new_min, new_max):
     min_val = min(values)
