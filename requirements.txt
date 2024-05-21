@@ -1,5 +1,5 @@
 pandas==1.3.4
-scikit-learn
+scikit-learn==1.3.1
 scaleogram==0.9.5
 scipy==1.10.1
 numpy==1.23.5
@@ -29,7 +29,7 @@ tables==3.8.0
 scikit-learn-intelex==2023.2.1
 imblearn
 xgboost==1.7.6
-lightgbm==4.1.0
+#lightgbm==4.1.0
 itsdangerous==2.0.1
 requests==2.31.0
 pyarrow
@@ -38,6 +38,7 @@ dpctl
 hyperopt==0.2.7
 imageio-ffmpeg
 nussl
+matplotlib==3.7.3
 lightning
 # kymatio
 scikit-cuda

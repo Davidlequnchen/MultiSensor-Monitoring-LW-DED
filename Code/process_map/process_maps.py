@@ -47,14 +47,14 @@ keyhole_line= power_range* 5.7  # Adjusting the slope and intercept; 1.17 for W
 #     'E2 (LoF + Balling)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': '#2ca02c'},  # Green, somewhat cold
 #     # E3: Originally E19 (Conduction + Balling)
 #     'E3 (Conduction + Balling)': {'power': 2100, 'speed': 900, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 's', 'color': '#9467bd'},  # Purple, in between
+#     # E4: Originally E14-April (Conduction + Balling), E16-April same
+#     'E4 (Conduction + Balling)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'p', 'color': '#ffbb78'},  # Light warm color, indicating moderate severity
 #     # E5: Originally E23 (Overheating/Keyhole pores)
 #     'E5 (Overheating/Keyhole pores)': {'power': 2900, 'speed': 900, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'H', 'color': '#ff9896'},  # Lighter warm red, lower power in category
 #     # E6: Originally E24 (Overheating/Keyhole pores)
 #     'E6 (Overheating/Keyhole pores)': {'power': 2900, 'speed': 480, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'D', 'color': '#d62728'},  # Darker warm red, same power, different speed
 #     # E7: Originally E25 (Balling, Non-printable)
 #     'E7 (Balling, Non-printable)': {'power': 3800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#8c2d04'},  # Most intense red, indicating highest severity
-#     # E8: Originally E14-April (Conduction + Balling), E16-April same
-#     'E8 (Conduction + Balling)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'p', 'color': '#ffbb78'},  # Light warm color, indicating moderate severity
 # }
 ### ---- After converting the units --> kW, and mm/s ----###
 data_points = {
