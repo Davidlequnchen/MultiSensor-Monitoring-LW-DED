@@ -7,7 +7,15 @@ import os
 import matplotlib.pyplot as plt
 import random
 import numpy as np
+import torch
 from torchvision.utils import make_grid
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
+from sklearn.metrics import classification_report, confusion_matrix, precision_score, recall_score, f1_score, roc_curve, auc
+from sklearn.preprocessing import label_binarize
+from itertools import cycle
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 
 ## function for automatically save the diagram/graph into the folder 
@@ -106,7 +114,7 @@ def conf_matrix(y_true, y_pred, classes=["Laser-off",'Defect-free','Cracks','Key
     plot_confusion_matrix(cm_pct, classes)
 
 
-def visualize_samples(dataset, num_samples=4, title_fontsize=24):
+def visualize_samples(dataset, label_to_index, num_samples=4, title_fontsize=24):
     # Extract unique categories from the dataset
     labels = [dataset[i][1] for i in range(len(dataset))]
     unique_categories = list(set(labels))
@@ -118,6 +126,9 @@ def visualize_samples(dataset, num_samples=4, title_fontsize=24):
     for i in range(len(dataset)):
         image, label = dataset[i]
         category_samples[label].append(i)
+    
+    # Inverse mapping from indices to labels
+    index_to_label = {v: k for k, v in label_to_index.items()}
     
     # Plot samples for each category
     num_cols = 2
@@ -137,8 +148,107 @@ def visualize_samples(dataset, num_samples=4, title_fontsize=24):
         
         ax = axs[i] if len(unique_categories) > 1 else axs
         ax.imshow(np.transpose(image_grid.numpy(), (1, 2, 0)))
-        ax.set_title(f'{category} Samples', fontsize=title_fontsize)
+        ax.set_title(f'{index_to_label[category]} Samples', fontsize=title_fontsize)
         ax.axis('off')
     
     plt.tight_layout()
     # plt.show()
+
+
+# Function to evaluate the model on the test set
+def evaluate_model(model, dataloader, criterion, device):
+    model.eval()
+    test_loss = 0.0
+    corrects = 0
+    all_preds = []
+    all_labels = []
+    all_scores = []
+    
+    with torch.no_grad():
+        for inputs, labels in dataloader:
+            inputs, labels = inputs.to(device), labels.to(device)
+            
+            outputs = model(inputs)
+            loss = criterion(outputs, labels)
+            
+            test_loss += loss.item() * inputs.size(0)
+            _, preds = torch.max(outputs, 1)
+            corrects += torch.sum(preds == labels.data)
+            
+            all_preds.extend(preds.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
+            all_scores.extend(outputs.cpu().numpy())  # Get raw scores
+
+    test_loss /= len(dataloader.dataset)
+    test_acc = corrects.double() / len(dataloader.dataset)
+    
+    print(f'Test Loss: {test_loss:.4f}, Test Accuracy: {test_acc:.4f}')
+    
+    return all_labels, all_preds, np.array(all_scores), test_loss, test_acc.item()
+
+
+
+# Function to plot ROC curves
+def plot_roc_curves(y_test, y_score, n_classes, classes):
+    # Binarize the output labels for ROC
+    y_test_bin = label_binarize(y_test, classes=range(n_classes))
+    
+    fpr = dict()
+    tpr = dict()
+    roc_auc = dict()
+    for i in range(n_classes):
+        fpr[i], tpr[i], _ = roc_curve(y_test_bin[:, i], y_score[:, i])
+        roc_auc[i] = auc(fpr[i], tpr[i])
+
+    # Compute micro-average ROC curve and ROC area
+    fpr["micro"], tpr["micro"], _ = roc_curve(y_test_bin.ravel(), y_score.ravel())
+    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+
+    # First aggregate all false positive rates
+    all_fpr = np.unique(np.concatenate([fpr[i] for i in range(n_classes)]))
+
+    # Then interpolate all ROC curves at these points
+    mean_tpr = np.zeros_like(all_fpr)
+    for i in range(n_classes):
+        mean_tpr += np.interp(all_fpr, fpr[i], tpr[i])
+
+    # Finally average it and compute AUC
+    mean_tpr /= n_classes
+
+    fpr["macro"] = all_fpr
+    tpr["macro"] = mean_tpr
+    roc_auc["macro"] = auc(fpr["macro"], tpr["macro"])
+
+    plt.figure(figsize=(4, 3), dpi=300)
+    widths = 2
+    ax = plt.gca()
+    for axis in ['top', 'bottom', 'left', 'right']:
+        ax.spines[axis].set_linewidth(widths)
+
+    tick_width = 1.5
+    plt.tick_params(direction='in', width=tick_width)
+
+    # Plot micro and macro ROC curves
+    plt.plot(fpr["micro"], tpr["micro"],
+             label='micro-average ROC curve (AUC = {0:0.2f})'.format(roc_auc["micro"]),
+             color='red', linestyle=':', linewidth=2, alpha=0.8)
+
+    plt.plot(fpr["macro"], tpr["macro"],
+             label='macro-average ROC curve (AUC = {0:0.2f})'.format(roc_auc["macro"]),
+             color='navy', linestyle=':', linewidth=2, alpha=0.8)
+
+    # Plot ROC curve for each class
+    colors = cycle(["aqua", "darkblue", "darkorange", "red", 'green', 'silver', 'yellow', 'olive'])
+    for i, color in zip(range(n_classes), colors):
+        plt.plot(fpr[i], tpr[i], color=color, lw=1, alpha=0.8,
+                 label='ROC curve of class {0} (area = {1:0.2f})'.format(classes[i], roc_auc[i]))
+
+    plt.plot([0, 1], [0, 1], 'k--', lw=2)
+    plt.xlim([-0.02, 1.02])
+    plt.ylim([-0.02, 1.02])
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.legend(loc="lower right", fontsize=6, frameon=True, framealpha=0.8)
+    plt.grid(linestyle='--', alpha=0.5, linewidth=0.8)
+    plt.tight_layout()
+    # plt.show() 

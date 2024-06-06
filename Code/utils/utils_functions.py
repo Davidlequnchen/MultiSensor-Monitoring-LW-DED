@@ -147,15 +147,16 @@ def model_evaluation(model, dataloader, classes, device, classifier_name = "MFCC
     return test_accuracy_mean, test_accuracy_std, auc_mean, auc_std
 
 ### Define Loss and Accuracy plot function
-def loss_acc_plot(train_losses, valid_losses, train_accuracy, valid_accuracy, epochs_num, title, interval=20, yloss_limit1=0, yloss_limit2=1.5, yacc_limit1=0.4, yacc_limit2=1):
-    fig, (ax1,ax2) = plt.subplots(nrows = 2, sharex = True, figsize=(7,8));
+def loss_acc_plot(train_losses, valid_losses, train_accuracy, valid_accuracy, epochs_num, title, 
+                  interval=20, yloss_limit1=0, yloss_limit2=1.5, yacc_limit1=0.4, yacc_limit2=1):
+    fig, (ax1,ax2) = plt.subplots(nrows = 1, ncols = 2, sharex = True, figsize=(7,8));
     # plt.title(title, fontsize = 20, y=1.05)
     # Loss plot
     ax1.plot(train_losses, 'darkorange', label = 'Train Loss', linewidth=2)
     ax1.plot(valid_losses, 'navy', label = 'Test Loss', linewidth=2)
     ax1.legend(loc =1, fontsize = 16)
     ax1.set_xlabel('Epochs', fontsize = 20)
-    ax1.set_xticks(np.arange(0,epochs_num+1,interval))
+    ax1.set_xticks(np.arange(1,epochs_num+1,interval))
     ax1.set_ylabel('Crossentropy Loss', fontsize = 20)
     ax1.set_ylim(yloss_limit1,yloss_limit2)
     ax1.set_title('Loss Curve', fontsize = 20, pad=12)
@@ -167,7 +168,7 @@ def loss_acc_plot(train_losses, valid_losses, train_accuracy, valid_accuracy, ep
     ax2.plot(valid_accuracy, 'navy', label = 'Test Accuracy', linewidth=2)
     ax2.legend(loc =4, fontsize = 16)
     ax2.set_xlabel('Epochs', fontsize = 20)
-    ax1.set_xticks(np.arange(0,epochs_num+1,interval))
+    ax1.set_xticks(np.arange(1,epochs_num+1,interval))
     ax2.set_ylabel('Accuracy', fontsize =20)
     ax2.set_ylim(yacc_limit1,yacc_limit2)
     ax2.set_title('Accuracy Curve', fontsize =20, pad=12)
