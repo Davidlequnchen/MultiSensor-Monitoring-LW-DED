@@ -24,6 +24,7 @@ audiomentations==0.30.0
 pydub
 torch-audiomentations
 PyQt5
+optuna
 opencv-python==4.7.0.72
 essentia==2.1b6.dev1034
 tables==3.8.0

@@ -146,38 +146,40 @@ def model_evaluation(model, dataloader, classes, device, classifier_name = "MFCC
     # save_fig("ROC_" + classifier_name + "_" + signal_type)
     return test_accuracy_mean, test_accuracy_std, auc_mean, auc_std
 
-### Define Loss and Accuracy plot function
+# Define Loss and Accuracy plot function
 def loss_acc_plot(train_losses, valid_losses, train_accuracy, valid_accuracy, epochs_num, title, 
-                  interval=20, yloss_limit1=0, yloss_limit2=1.5, yacc_limit1=0.4, yacc_limit2=1):
-    fig, (ax1,ax2) = plt.subplots(nrows = 1, ncols = 2, sharex = True, figsize=(7,8));
-    # plt.title(title, fontsize = 20, y=1.05)
+                  interval=20, yloss_limit1=0, yloss_limit2=1.5, yacc_limit1=0.4, yacc_limit2=1, figsize=(16,4)):
+    fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, sharex=True, figsize=figsize)
+    
     # Loss plot
-    ax1.plot(train_losses, 'darkorange', label = 'Train Loss', linewidth=2)
-    ax1.plot(valid_losses, 'navy', label = 'Test Loss', linewidth=2)
-    ax1.legend(loc =1, fontsize = 16)
-    ax1.set_xlabel('Epochs', fontsize = 20)
-    ax1.set_xticks(np.arange(1,epochs_num+1,interval))
-    ax1.set_ylabel('Crossentropy Loss', fontsize = 20)
-    ax1.set_ylim(yloss_limit1,yloss_limit2)
-    ax1.set_title('Loss Curve', fontsize = 20, pad=12)
+    ax1.plot(range(1, epochs_num + 1), train_losses, 'darkorange', label='Train Loss', linewidth=2)
+    ax1.plot(range(1, epochs_num + 1), valid_losses, 'navy', label='Test Loss', linewidth=2)
+    ax1.legend(loc=1, fontsize=16)
+    ax1.set_xlabel('Epochs', fontsize=20)
+    ax1.set_xticks(np.arange(1, epochs_num + 1, interval))
+    ax1.set_ylabel('Crossentropy Loss', fontsize=20)
+    ax1.set_ylim(yloss_limit1, yloss_limit2)
+    ax1.set_title('Loss Curve', fontsize=20, pad=12)
     ax1.xaxis.set_tick_params(labelsize=18)
     ax1.yaxis.set_tick_params(labelsize=18)
     
     # Accuracy plot
-    ax2.plot(train_accuracy, 'darkorange', label = 'Train Accuracy', linewidth=2)
-    ax2.plot(valid_accuracy, 'navy', label = 'Test Accuracy', linewidth=2)
-    ax2.legend(loc =4, fontsize = 16)
-    ax2.set_xlabel('Epochs', fontsize = 20)
-    ax1.set_xticks(np.arange(1,epochs_num+1,interval))
-    ax2.set_ylabel('Accuracy', fontsize =20)
-    ax2.set_ylim(yacc_limit1,yacc_limit2)
-    ax2.set_title('Accuracy Curve', fontsize =20, pad=12)
+    ax2.plot(range(1, epochs_num + 1), train_accuracy, 'darkorange', label='Train Accuracy', linewidth=2)
+    ax2.plot(range(1, epochs_num + 1), valid_accuracy, 'navy', label='Test Accuracy', linewidth=2)
+    ax2.legend(loc=4, fontsize=16)
+    ax2.set_xlabel('Epochs', fontsize=20)
+    ax2.set_xticks(np.arange(1, epochs_num + 1, interval))
+    ax2.set_ylabel('Accuracy', fontsize=20)
+    ax2.set_ylim(yacc_limit1, yacc_limit2)
+    ax2.set_title('Accuracy Curve', fontsize=20, pad=12)
     ax2.xaxis.set_tick_params(labelsize=18)
     ax2.yaxis.set_tick_params(labelsize=18)
-    ax1.grid(zorder=3, linestyle='--',linewidth=0.8, alpha=0.4, color = "k") #linestyle='--', color='r'
-    ax2.grid(zorder=3, linestyle='--',linewidth=0.8, alpha=0.4, color = "k") #linestyle='--', color='r'
-    # fig.suptitle(title, fontsize = 22, y=1.001)
+    
+    ax1.grid(zorder=3, linestyle='--', linewidth=0.8, alpha=0.4, color="k")
+    ax2.grid(zorder=3, linestyle='--', linewidth=0.8, alpha=0.4, color="k")
+    
     plt.tight_layout()
+
 
 def get_accuracy(model, data_loader, device, mode = 'single_model'):
     '''
