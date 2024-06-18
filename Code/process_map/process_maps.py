@@ -22,49 +22,49 @@ keyhole_line= power_range* 5.7  # Adjusting the slope and intercept; 1.17 for W
 #     # marker: D, s, X, o, *
 #     # 'E6 (Stable Conduction)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'o', 'color': 'blue'}, 
 #     # 'E7 (Stable Conduction)': {'power': 2500, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'o', 'color': 'blue'},
-#     # 'E8 (Conduction + Balling)': {'power': 2900, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
-#     # 'E9 (Conduction + Balling)': {'power': 2300, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
+#     # 'E8 (Conduction + Dripping)': {'power': 2900, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
+#     # 'E9 (Conduction + Dripping)': {'power': 2300, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
 #     'E10 (LoF)': {'power': 1500, 'speed': 2100, 'hatch':1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#bcbd22'},
-#     # 'E13 (Conduction + Balling)': {'power': 2100, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
-#     'E17 (Conduction + Balling)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
-#     'E18 (Conduction + Balling)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#bcbd22'},
-#     'E19 (Conduction + Balling)': {'power': 2100, 'speed': 900, 'hatch':1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#bcbd22'},
+#     # 'E13 (Conduction + Dripping)': {'power': 2100, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
+#     'E17 (Conduction + Dripping)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': 'orange'},
+#     'E18 (Conduction + Dripping)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#bcbd22'},
+#     'E19 (Conduction + Dripping)': {'power': 2100, 'speed': 900, 'hatch':1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#bcbd22'},
 #     # 'E20 (Conduction + Noise Interference)': {'power': 2100, 'speed': 900, 'hatch':1.7, 'layer thickness': 1.4, 'marker': 'D', 'color': '#7f7f7f'},
 #     # 'E21 (Stable Conduction)': {'power': 2100, 'speed': 900, 'hatch':1.7, 'layer thickness': 1.4, 'marker': 'o', 'color': 'blue'},
 #     'E22 (LoF)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#bcbd22'},
 #     'E23 (Overheating/Keyhole pores)': {'power': 2900, 'speed': 900, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'H', 'color': 'red'},
 #     'E24 (Overheating/Keyhole pores)': {'power': 2900, 'speed': 480, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'H', 'color': 'red'},
-#     'E25 (Balling, Non-printable)': {'power': 3800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#d62728'},
-#     'E14-April (Conduction + Balling)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'X', 'color': '#bcbd22'},
-#     'E16-April (Conduction + Balling)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.5, 'marker': 'X', 'color': '#bcbd22'},
+#     'E25 (Dripping, Non-printable)': {'power': 3800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#d62728'},
+#     'E14-April (Conduction + Dripping)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'X', 'color': '#bcbd22'},
+#     'E16-April (Conduction + Dripping)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.5, 'marker': 'X', 'color': '#bcbd22'},
 # }
 
 ### ---- selected experiments for modelling  ----###
 # data_points = {
 #     # E1: Originally E10 (LoF)
 #     'E1 (LoF)': {'power': 1500, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#1f77b4'},  # Cold color for LoF
-#     # E2: Originally E17 (LoF + Balling), same as E18, E22
-#     'E2 (LoF + Balling)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': '#2ca02c'},  # Green, somewhat cold
-#     # E3: Originally E19 (Conduction + Balling)
-#     'E3 (Conduction + Balling)': {'power': 2100, 'speed': 900, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 's', 'color': '#9467bd'},  # Purple, in between
-#     # E4: Originally E14-April (Conduction + Balling), E16-April same
-#     'E4 (Conduction + Balling)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'p', 'color': '#ffbb78'},  # Light warm color, indicating moderate severity
+#     # E2: Originally E17 (LoF + Dripping), same as E18, E22
+#     'E2 (LoF + Dripping)': {'power': 1800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': '#2ca02c'},  # Green, somewhat cold
+#     # E3: Originally E19 (Conduction + Dripping)
+#     'E3 (Conduction + Dripping)': {'power': 2100, 'speed': 900, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 's', 'color': '#9467bd'},  # Purple, in between
+#     # E4: Originally E14-April (Conduction + Dripping), E16-April same
+#     'E4 (Conduction + Dripping)': {'power': 2100, 'speed': 1500, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'p', 'color': '#ffbb78'},  # Light warm color, indicating moderate severity
 #     # E5: Originally E23 (Overheating/Keyhole pores)
 #     'E5 (Overheating/Keyhole pores)': {'power': 2900, 'speed': 900, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'H', 'color': '#ff9896'},  # Lighter warm red, lower power in category
 #     # E6: Originally E24 (Overheating/Keyhole pores)
 #     'E6 (Overheating/Keyhole pores)': {'power': 2900, 'speed': 480, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'D', 'color': '#d62728'},  # Darker warm red, same power, different speed
-#     # E7: Originally E25 (Balling, Non-printable)
-#     'E7 (Balling, Non-printable)': {'power': 3800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#8c2d04'},  # Most intense red, indicating highest severity
+#     # E7: Originally E25 (Dripping, Non-printable)
+#     'E7 (Dripping, Non-printable)': {'power': 3800, 'speed': 2100, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#8c2d04'},  # Most intense red, indicating highest severity
 # }
 ### ---- After converting the units --> kW, and mm/s ----###
 data_points = {
-    'E1 (LoF + Balling)': {'power': 1.5, 'speed': 35, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#1f77b4'},
-    'E2 (LoF)': {'power': 1.8, 'speed': 35, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': '#2ca02c'},
-    'E3 (Conduction + Balling)': {'power': 2.1, 'speed': 15, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 's', 'color': '#9467bd'},
-    'E4 (Conduction + Balling)': {'power': 2.1, 'speed': 25, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'p', 'color': '#ffbb78'},
-    'E5 (Overheating / Keyhole pores)': {'power': 2.9, 'speed': 15, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'H', 'color': '#ff9896'},
-    'E6 (Overheating / Keyhole pores)': {'power': 2.9, 'speed': 8, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'D', 'color': '#d62728'},
-    'E7 (Balling, Non-printable)': {'power': 3.8, 'speed': 35, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#8c2d04'},
+    'E1 (LoF + Dripping)': {'power': 1.5, 'speed': 35, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'X', 'color': '#1f77b4'},
+    'E2 (LoF + Dripping)': {'power': 1.8, 'speed': 35, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': '^', 'color': '#2ca02c'},
+    'E3 (Conduction + Dripping)': {'power': 2.1, 'speed': 15, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 's', 'color': '#9467bd'},
+    'E4 (Conduction + Dripping)': {'power': 2.1, 'speed': 25, 'hatch': 1.7, 'layer thickness': 0.7, 'marker': 'p', 'color': '#ffbb78'},
+    'E5 (Overheating + Dripping)': {'power': 2.9, 'speed': 15, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'H', 'color': '#ff9896'},
+    'E6 (Overheating + Dripping)': {'power': 2.9, 'speed': 8, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'D', 'color': '#d62728'},
+    'E7 (Dripping, Non-printable)': {'power': 3.8, 'speed': 35, 'hatch': 1.7, 'layer thickness': 1.4, 'marker': 'h', 'color': '#8c2d04'},
 }
 
 
