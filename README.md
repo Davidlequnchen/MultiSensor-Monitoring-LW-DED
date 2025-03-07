@@ -2,11 +2,6 @@
 
 <div align="center">
 
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Platform](https://img.shields.io/badge/Platform-Ubuntu-orange)
-![Python](https://img.shields.io/badge/Python-3.6+-blue)
-![ROS](https://img.shields.io/badge/ROS-Compatible-brightgreen)
-
 </div>
 
 > A comprehensive framework for thermal-acoustic monitoring of laser-wire directed energy deposition (LW-DED) process.
