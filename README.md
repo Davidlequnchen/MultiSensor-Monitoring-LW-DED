@@ -14,13 +14,11 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
-- [Research Highlights](#-research-highlights)
 - [Installation](#-installation)
-- [Usage](#-usage)
 - [Video Demonstration](#-video-demonstration)
 - [Visual Examples](#-visual-examples)
 - [Publications](#-publications)
-- [References](#-references)
+
 
 ## 📌 Overview
 
@@ -92,7 +90,7 @@ For detailed LightGBM Python integration, see: [LightGBM Python Guide](https://b
   </tr>
 </table>
 
-## 📊 Visual Examples
+## 📊 Graphical Illustrations
 
 <table width="100%">
   <tr>
@@ -102,12 +100,17 @@ For detailed LightGBM Python integration, see: [LightGBM Python Guide](https://b
       <p><em>Schematic of coaxial wire-fed LW-DED system with integrated audio-thermal monitoring</em></p>
     </td>
     <td align="center" width="50%">
-      <strong>Process Parameter Map</strong><br>
-      <img src="./images/Process_map-Process-Map.png" alt="Process Map" width="100%">
-      <p><em>Process parameter map showing defect formation regimes in laser-wire deposition</em></p>
+      <strong>Wire-laser directed energy deposition (WL-DED) setup</strong><br>
+      <img src="./images/DSC00065.JPG" alt="Wire-laser directed energy deposition (WL-DED) setup" width="100%">
+      <p><em>Coaxial wire-fed LW-DED system </em></p>
     </td>
   </tr>
 </table>
+
+<div align="center">
+  <img src="./images/Process_map-Process-Map.png" alt="Process Map" width="80%">
+  <p><em>Process parameter map showing defect formation regimes in laser-wire deposition</em></p>
+</div>
 
 <div align="center">
   <img src="./images/Audio_signal_feature-case-4.png" alt="Audio Signal Feature" width="80%">
